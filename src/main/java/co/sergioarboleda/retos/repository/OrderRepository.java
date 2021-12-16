@@ -67,16 +67,18 @@ public class OrderRepository {
         return  orderCrudRepository.findByStatusAndId(status,ids);
     }
      
-     public List<Order> getByRegisterDayAndSalesManId(String registerDay,Integer id){
-        try {
+     //public List<Order> getByRegisterDayAndSalesManId(String registerDay,Integer id){
+     public List<Order> getByRegisterDayAndSalesManId(Date registerDay,Date registerDay1,Integer id){
+        /*
+         try {
             return orderCrudRepository.findByRegisterDayAndSalesManId(new SimpleDateFormat("yyyy-MM-dd").parse(registerDay),id);
            
         } catch (ParseException ex) {
             ex.printStackTrace();
-          //  Logger.getLogger(OrderRepository.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
-        
+        */
+        return  orderCrudRepository.findByRegisterDayBetweenAndSalesMan_id(registerDay,registerDay1, id);
     }
 
 
